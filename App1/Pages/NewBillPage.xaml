@@ -1,0 +1,50 @@
+﻿<Page
+    x:Class="App1.Pages.NewBillPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App1.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Button x:Name="Back" Style="{StaticResource NavigationBackButtonNormalStyle}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,20,0,0" Click="Back_Click"/>
+
+        <StackPanel Orientation="Vertical">
+
+            <TextBlock x:Name="header" FontSize="40" Margin="50,10,0,0" Text="Nouvelle facture"/>
+
+            <StackPanel Orientation="Horizontal">
+
+                <StackPanel Orientation="Vertical" Width="550">
+                    <TextBox x:Name="date" Margin="-150,100,0,0" Width="250" Header="Date" PlaceholderText="JJ/MM/AAAA"/>
+                    <TextBox x:Name="reference" Margin="-150,24,0,0" Width="250" Header="Reference"/>
+
+                    <ComboBox x:Name="Box" Header="Convention" PlaceholderText="Aucune" Width="400" Margin="75,48,0,0" SelectionChanged="SelectionChanged"/>
+
+                    <TextBox x:Name="services" Header="Prestations et Tarifications:" AcceptsReturn="True" Height="200" Width="400" Margin="0,75,0,0"/>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="cancel" Width="100" Content="Cancel" Margin="75,200,0,0" Click="Back_Click"/>
+                        <Button x:Name="save" Width="100" Content="Save" Margin="192,200,0,0" Click="save_Click"/>
+                    </StackPanel>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox x:Name="heure" Margin="75,450,0,0" Width="150" Header="Heures" TextChanging="HourChanged"/>
+                        <TextBox x:Name="TVA" Margin="48,450,0,0" Width="150" Header="TVA"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox x:Name="TotalHT" Margin="75,12,0,0" Width="150" Header="Total HT" TextChanging="THTChanged"/>
+                        <TextBox x:Name="TotalTC" Margin="48,12,0,0" Width="150" Header="Total TC"/>
+                    </StackPanel>
+                </StackPanel>
+
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</Page>

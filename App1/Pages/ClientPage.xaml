@@ -1,0 +1,119 @@
+﻿<Page
+    x:Class="App1.Pages.ClientPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App1.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Button x:Name="Back" Style="{StaticResource NavigationBackButtonNormalStyle}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,20,0,0" Click="Back_Click"/>
+        <TextBlock x:Name="Header" FontSize="40" Margin="60,10,0,0"/>
+
+        <StackPanel Orientation="Vertical">
+
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical" Width="1300">
+                    <TextBlock x:Name="t0" Text="Conventions" FontSize="20" Margin="55,125,0,0"/>
+                    <controls:DataGrid x:Name="dataGridConventions" 
+                           Height="350" Margin="40,20,0,0"
+                           AutoGenerateColumns="True"
+                           HorizontalAlignment="Left"
+                           AlternatingRowBackground="Gray"
+                           ColumnWidth="250"
+                           Width="1250"  AreRowDetailsFrozen="True" AreRowGroupHeadersFrozen="True"
+                               IsReadOnly="True"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Width="200">
+                    <Button x:Name="AddConv" Content="Ajouter" Width="100" HorizontalAlignment="Center" Margin="0,300,0,0" Click="AddConv_Click"/>
+                    <Button x:Name="UpdConv" Content="Modifier" Width="100" HorizontalAlignment="Center" Margin="0,24,0,0" Click="UpdConv_Click"/>
+                    <Button x:Name="ExpConv" Content="Exporter" Width="100" HorizontalAlignment="Center" Margin="0,24,0,0" Click="ExpConv_Click"/>
+                    <Button x:Name="RemConv" Content="Supprimer" Width="100" HorizontalAlignment="Center" Margin="0,24,0,0" Click="RemConv_Click" BorderBrush="Red"/>
+
+                </StackPanel>
+            </StackPanel>
+
+            <Popup x:Name="ConfirmConv" IsOpen="False" VerticalOffset="-200" HorizontalOffset="0" VerticalAlignment="Top" HorizontalAlignment="Center">
+                <Grid Background="Gray" Width="500" Height="200">
+                    <TextBlock Text="Confirmez-vous la suppression de cette convention ?" 
+                   HorizontalAlignment="Center" VerticalAlignment="Top" 
+                   Margin="20,40,20,0" FontSize="16" FontWeight="Bold" />
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,20,0,20">
+                        <Button x:Name="CancelConv" Content="Annuler" Width="100" Margin="20,0" Click="CancelConv_Click" Background="White" Foreground="Black"/>
+                        <Button x:Name="ConfirmConv_" Content="Confirmer" Width="100" Margin="20,0" Click="ConfirmConv_Click" Background="White" Foreground="Black" BorderBrush="Red"/>
+                    </StackPanel>
+                </Grid>
+            </Popup>
+
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical" Width="1300">
+                    <TextBlock x:Name="t1" Text="Factures" FontSize="20" Margin="55,125,0,0"/>
+                    <controls:DataGrid x:Name="dataGridFactures" 
+                           Height="400" Margin="120,20,0,0"
+                           AutoGenerateColumns="True"
+                           AlternatingRowBackground="Gray"
+                           ColumnWidth="250"
+                           Width="1100" AreRowDetailsFrozen="True" AreRowGroupHeadersFrozen="True"
+                               IsReadOnly="True"/>
+                    <StackPanel Orientation="Horizontal" Margin="925,0,0,0">
+                        <TextBlock Text="Total restant:"/>
+                        <TextBlock x:Name="totalRestantBlock"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Width="200">
+                    <Button x:Name="AddBill" Width="100" Content="Ajouter" HorizontalAlignment="Center" Margin="0,300,0,0" Click="AddBill_Click"/>
+                    <Button x:Name="UpdBill" Width="100" Content="Modifier" HorizontalAlignment="Center" Margin="0,24,0,0" Click="UpdBill_Click"/>
+                    <Button x:Name="ExpBill" Width="100" Content="Exporter" HorizontalAlignment="Center" Margin="0,24,0,0" Click="ExpBill_Click"/>
+                    <Button x:Name="RemBill" Width="100" Content="Supprimer" HorizontalAlignment="Center" Margin="0,24,0,0" Click="RemBill_Click" BorderBrush="Red"/>
+                </StackPanel>
+            </StackPanel>
+
+            <Popup x:Name="ConfirmBill" IsOpen="False"  VerticalOffset="-200" HorizontalOffset="0" VerticalAlignment="Top" HorizontalAlignment="Center">
+                <Grid Background="Gray" Width="500" Height="200">
+                    <TextBlock Text="Confirmez-vous la suppression de cette facture ?" 
+                   HorizontalAlignment="Center" VerticalAlignment="Top" 
+                   Margin="20,40,20,0" FontSize="16" FontWeight="Bold" />
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,20,0,20">
+                        <Button x:Name="CancelBill" Content="Annuler" Width="100" Margin="20,0" Click="CancelBill_Click" Background="White" Foreground="Black"/>
+                        <Button x:Name="ConfirmBill_" Content="Confirmer" Width="100" Margin="20,0" Click="ConfirmBill_Click" Background="White" Foreground="Black" BorderBrush="Red"/>
+                    </StackPanel>
+                </Grid>
+            </Popup>
+
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock x:Name="t2" Text="Paiements" FontSize="20" Margin="55,125,0,0"/>
+                    <controls:DataGrid x:Name="dataGridPayments" 
+                           Height="300" Margin="250,20,0,0"
+                           AutoGenerateColumns="True"
+                           AlternatingRowBackground="Gray"
+                           ColumnWidth="400"
+                           Width="800" AreRowDetailsFrozen="True" AreRowGroupHeadersFrozen="True"
+                               IsReadOnly="True"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Width="200">
+                    <Button x:Name="AddPayment" Width="100" Content="Ajouter" HorizontalAlignment="Center" Margin="0,225,0,0" Click="AddPayment_Click"/>
+                    <Button x:Name="RemPayment" Width="100" Content="Supprimer" HorizontalAlignment="Center" Margin="0,24,0,0" Click="RemPayment_Click" BorderBrush="Red"/>
+                </StackPanel>
+            </StackPanel>
+
+
+            <Popup x:Name="ConfirmPayment" IsOpen="False"  VerticalOffset="-400" HorizontalOffset="-100" VerticalAlignment="Top" HorizontalAlignment="Center" >
+                <Grid Background="Gray" Width="500" Height="200">
+                    <TextBlock Text="Confirmez-vous la suppression de ce versement ?" 
+                   HorizontalAlignment="Center" VerticalAlignment="Top" 
+                   Margin="20,40,20,0" FontSize="16" FontWeight="Bold" />
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,20,0,20">
+                        <Button x:Name="Cancel" Content="Annuler" Width="100" Margin="20,0" Click="CancelPay_Click" Background="White" Foreground="Black"/>
+                        <Button x:Name="Confirm" Content="Confirmer" Width="100" Margin="20,0" Click="ConfirmPay_Click" Background="White" Foreground="Black" BorderBrush="Red"/>
+                    </StackPanel>
+                </Grid>
+            </Popup>
+
+        </StackPanel>
+
+    </Grid>
+</Page>
